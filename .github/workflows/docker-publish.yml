@@ -16,12 +16,12 @@ jobs:
       - name: Iniciar sesion en docker
         uses: docker/login-action@v3
         with: 
-          username: ${{secrets.DOCKERHUB_USERNAME}}
-          password: ${{secrets.DOCKERHUBTOKEN}}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUBTOKEN }}
       
       - name: construir y Publicar
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
-          tag: ${{secrets.DOCKERHUB_USERNAME}}/MS_producto_DevOps:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/MS_producto_DevOps:latest
